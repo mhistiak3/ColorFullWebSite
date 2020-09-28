@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: grey;
+            transition: all 0.5s;
+        }
+
+        #btn {
+            background-color: rgb(255, 123, 0);
+            margin: 300px 600px;
+            border: none;
+            padding: 10px;
+            font-size: 25px;
+            border-radius: 10px;
+
+
+        }
+
+        #hex-value {
+            position: absolute;
+            top: 230px;
+            left: 600px;
+        }
+
+        #hex-code {
+            position: absolute;
+            top: 180px;
+            left: 600px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="hex-code">HEXA CODE</h2>
+    <hr>
+    <h1 id="hex-value"> </h1>
+
+    <button id="btn">Generat Color</button>
+    <script>
+        document.querySelector("#btn").addEventListener('click', function () {
+            let color = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+            let body = document.querySelector('body');
+
+
+
+            let hex = '#';
+            for(i = 0; i < 6; i++){
+                let index = Math.floor(Math.random()*color.length);
+                hex = hex + color[index];
+            }
+
+            body.style.backgroundColor = hex;
+            document.querySelector("h1").innerHTML = hex;
+
+        })
+    </script>
+</body>
+
+</html>
